@@ -19,13 +19,6 @@ export function Footer() {
       React.createElement('a', { href: 'tel:+79990000000' }, '+7 (999) 000-00-00'),
       React.createElement('a', { href: '#', onClick: (e) => e.preventDefault() }, '@barberton.style'),
       React.createElement('a', { href: '#', onClick: (e) => e.preventDefault() }, 'Запись в Direct')
-    ),
-
-    React.createElement(
-      'small',
-      { className: 'icon-attribution' },
-      'Иконки: ',
-      React.createElement('a', { href: 'https://www.flaticon.com/ru/packs/barber-shop-35', target: '_blank', rel: 'noreferrer' }, 'Barber Shop icon pack (Flaticon)')
     )
   );
 }
