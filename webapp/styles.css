@@ -3,9 +3,9 @@
   --bg2: #12122a;
   --text: #f8f8ff;
   --muted: #b6b6cc;
-  --primary: #8b5cf6;
-  --cyan: #22d3ee;
-  --gold: #f59e0b;
+  --primary: #f4f4f5;
+  --cyan: #d4d4d8;
+  --gold: #a1a1aa;
   --card: rgba(18, 18, 40, 0.62);
   --border: rgba(255, 255, 255, 0.16);
 }
@@ -20,7 +20,7 @@ body {
     radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.27), transparent 30%),
     radial-gradient(circle at 90% 15%, rgba(34, 211, 238, 0.24), transparent 35%),
     radial-gradient(circle at 50% 95%, rgba(245, 158, 11, 0.24), transparent 35%),
-    linear-gradient(145deg, var(--bg), var(--bg2));
+    linear-gradient(145deg, #020202, #111111);
   overflow-x: hidden;
 }
 
@@ -39,6 +39,23 @@ body {
 }
 
 .container { width: min(1140px, 92%); margin-inline: auto; }
+
+.announce-bar {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  overflow: hidden;
+  white-space: nowrap;
+}
+.announce-track {
+  display: inline-block;
+  padding: 8px 0;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  animation: marquee 20s linear infinite;
+}
+
 
 .nav {
   position: sticky;
@@ -286,7 +303,7 @@ h2.section-title { margin: 0 0 14px; font-size: clamp(1.35rem, 2.4vw, 2rem); }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .pulse, .logo-mark, .icon-motion-1, .icon-motion-2, .icon-motion-3, .bg-grid, .bg-wave, .bg-particle, .barber-pole { animation: none !important; }
+  .pulse, .logo-mark, .icon-motion-1, .icon-motion-2, .icon-motion-3, .bg-grid, .bg-wave, .bg-particle, .barber-pole, .announce-track { animation: none !important; }
 }
 
 
@@ -433,3 +450,7 @@ h2.section-title { margin: 0 0 14px; font-size: clamp(1.35rem, 2.4vw, 2rem); }
   0%,100% { transform: scale(1); }
   50% { transform: scale(1.08); }
 }
+
+.badge-v3 { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,.45); }
+.hero-visual-contrast img { filter: grayscale(1) contrast(1.15); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }

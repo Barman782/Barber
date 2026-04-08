@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from './Header.js';
+import { AnnouncementBar } from './AnnouncementBar.js';
 import { Hero } from './Hero.js';
 import { Services } from './Services.js';
 import { Gallery } from './Gallery.js';
@@ -24,6 +25,7 @@ export function App() {
     React.createElement('div', { className: 'floater f3' }),
     React.createElement('div', { className: 'floater f4' }),
     React.createElement(Scissors),
+    React.createElement(AnnouncementBar),
     React.createElement(Header),
     React.createElement(Hero, { telegramStatus }),
     React.createElement(Services),

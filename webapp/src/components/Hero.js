@@ -7,19 +7,19 @@ export function Hero({ telegramStatus }) {
     React.createElement(
       'div',
       null,
-      React.createElement('div', { className: 'badge' }, 'Barberton • fades, beard, style'),
+      React.createElement('div', { className: 'badge badge-v3' }, 'BLACK LABEL EDITION • v3'),
       React.createElement(
         'h1',
         null,
-        'Barberton 2.0: стрижки с ',
-        React.createElement('span', { className: 'gradient' }, 'характером'),
+        'Barberton ',
+        React.createElement('span', { className: 'gradient' }, 'BLACK LABEL'),
         React.createElement('br'),
-        'и динамикой нового уровня.'
+        'Самый дерзкий редизайн.'
       ),
       React.createElement(
         'p',
         { className: 'lead' },
-        'Усилил концепт: больше контраста, больше анимации, больше барбер-атмосферы. Теперь лендинг с отдельными блоками прайса и отзывов, чтобы визуально было сразу понятно, что это премиум-сервис.'
+        'Полностью обновил визуал: новый барбер-фон, свежие иконки, жирная типографика и более агрессивный премиум-стиль. Если видишь старое — это кэш, обнови страницу принудительно.'
       ),
       React.createElement(
         'div',
@@ -31,10 +31,10 @@ export function Hero({ telegramStatus }) {
     ),
     React.createElement(
       'aside',
-      { className: 'glass hero-visual' },
+      { className: 'glass hero-visual hero-visual-contrast' },
       React.createElement('img', {
-        src: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=70&v=2',
-        alt: 'Барбер делает современную стрижку',
+        src: 'https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=70&v=9',
+        alt: 'Барбер с инструментами',
         loading: 'eager',
         decoding: 'async',
         fetchPriority: 'high',
@@ -44,8 +44,8 @@ export function Hero({ telegramStatus }) {
       React.createElement(
         'div',
         { className: 'hero-chip' },
-        React.createElement('strong', null, '7+ лет опыта'),
-        React.createElement('span', null, '1200+ клиентов • рейтинг 5.0')
+        React.createElement('strong', null, 'New style deployed'),
+        React.createElement('span', null, 'Hard refresh если не видно изменений')
       )
     )
   );
