@@ -54,7 +54,9 @@ body {
 .logo-text strong { letter-spacing: 0.11em; font-size: 0.95rem; }
 .logo-text span { display: block; color: var(--muted); font-size: 0.72rem; text-transform: uppercase; }
 
-.logo-icon-img { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.09); padding: 4px; filter: grayscale(1) contrast(1.2) brightness(1.15); }
+.logo-mark { width: 42px; height: 42px; }
+.logo-mark rect, .logo-mark path, .logo-mark circle { fill: none; stroke: #f4f4f5; stroke-width: 2.4; }
+.logo-mark rect { fill: rgba(255,255,255,0.06); }
 
 .menu { display: flex; align-items: center; gap: 12px; }
 .menu a { color: var(--muted); text-decoration: none; font-weight: 600; }
@@ -158,7 +160,9 @@ h2.section-title { margin: 0 0 14px; font-size: clamp(1.35rem, 2.4vw, 2rem); }
 }
 
 .card:hover { transform: translate3d(var(--px, 0), calc(var(--py, 0) - 6px), 0); border-color: rgba(196, 181, 253, 0.75); }
-.service-icon-img { width: 46px; height: 46px; margin-bottom: 8px; border-radius: 10px; background: rgba(255,255,255,0.09); padding: 6px; object-fit: contain; filter: grayscale(1) contrast(1.35) brightness(1.18); }
+.service-icon-svg { width: 54px; height: 54px; margin-bottom: 8px; padding: 8px; border-radius: 12px; background: rgba(255,255,255,0.07); }
+.service-icon-svg svg { width: 100%; height: 100%; }
+.service-icon-svg path, .service-icon-svg circle { fill: none; stroke: #f4f4f5; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 
 .gallery-grid {
   display: grid;
@@ -282,7 +286,7 @@ h2.section-title { margin: 0 0 14px; font-size: clamp(1.35rem, 2.4vw, 2rem); }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .pulse, .logo-icon-spin, .icon-motion-1, .icon-motion-2, .icon-motion-3, .bg-grid, .bg-orb, .bg-particle { animation: none !important; }
+  .pulse, .logo-mark, .icon-motion-1, .icon-motion-2, .icon-motion-3, .bg-grid, .bg-wave, .bg-particle, .barber-pole { animation: none !important; }
 }
 
 
@@ -330,8 +334,6 @@ h2.section-title { margin: 0 0 14px; font-size: clamp(1.35rem, 2.4vw, 2rem); }
   .pricing-grid, .reviews-grid { grid-template-columns: 1fr; }
 }
 
-.icon-attribution { width: 100%; color: var(--muted); }
-.icon-attribution a { color: #93c5fd; }
 
 
 .bg-fx {
@@ -342,60 +344,81 @@ h2.section-title { margin: 0 0 14px; font-size: clamp(1.35rem, 2.4vw, 2rem); }
   pointer-events: none;
 }
 
+.barber-pole {
+  position: absolute;
+  width: 44px;
+  height: 100vh;
+  top: 0;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: repeating-linear-gradient(
+    -35deg,
+    rgba(255,255,255,0.9) 0 14px,
+    rgba(20,20,20,0.95) 14px 28px
+  );
+  animation: poleFlow 3.4s linear infinite;
+  opacity: .18;
+}
+.pole-left { left: 0; }
+.pole-right { right: 0; }
+
 .bg-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
   mask-image: radial-gradient(circle at 50% 40%, black, transparent 78%);
-  animation: gridMove 18s linear infinite;
+  animation: gridMove 20s linear infinite;
 }
 
-.bg-orb {
+.bg-wave {
   position: absolute;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,.02) 62%, transparent);
-  filter: blur(8px);
-  mix-blend-mode: screen;
+  width: 65vw;
+  height: 65vw;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 45% 55% 58% 42% / 42% 38% 62% 58%;
+  filter: blur(0.2px);
 }
-.bg-orb-1 { width: 360px; height: 360px; left: -90px; top: -40px; animation: drift 11s ease-in-out infinite; }
-.bg-orb-2 { width: 300px; height: 300px; right: -70px; top: 24%; animation: drift 14s ease-in-out infinite reverse; }
-.bg-orb-3 { width: 280px; height: 280px; left: 28%; bottom: -110px; animation: drift 12s ease-in-out infinite; }
+.bg-wave-1 { left: -18vw; top: -12vw; animation: morph 14s linear infinite; }
+.bg-wave-2 { right: -18vw; bottom: -16vw; animation: morph 18s linear infinite reverse; }
 
 .bg-particle {
   position: absolute;
   bottom: -24px;
   border-radius: 50%;
   background: rgba(255,255,255,0.55);
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.12);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
   animation-name: rise;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.logo-icon-spin { animation: spinSlow 10s linear infinite; }
+.logo-mark { animation: logoPulse 3.2s ease-in-out infinite; }
 .icon-motion-1 { animation: iconBounce 2.8s ease-in-out infinite; }
 .icon-motion-2 { animation: iconSwing 3.2s ease-in-out infinite; }
 .icon-motion-3 { animation: iconPulse 2.6s ease-in-out infinite; }
 
+@keyframes poleFlow {
+  from { background-position: 0 0; }
+  to { background-position: 0 72px; }
+}
 @keyframes gridMove {
   0% { transform: translateY(0); }
-  100% { transform: translateY(48px); }
+  100% { transform: translateY(42px); }
 }
-@keyframes drift {
-  0%,100% { transform: translate3d(0,0,0); }
-  50% { transform: translate3d(20px,-20px,0); }
+@keyframes morph {
+  0%,100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.08); }
 }
 @keyframes rise {
   0% { transform: translateY(0); opacity: 0; }
-  12% { opacity: .7; }
+  15% { opacity: .7; }
   100% { transform: translateY(-110vh); opacity: 0; }
 }
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes logoPulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
 }
 @keyframes iconBounce {
   0%,100% { transform: translateY(0); }
